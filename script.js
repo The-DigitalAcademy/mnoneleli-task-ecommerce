@@ -67,7 +67,6 @@ var productsState = [
 ]
 
 
-// LINK JS TO HTML ELEMENT
 const products = document.getElementById("products")
 var brnie = document.getElementById("brnie")
 
@@ -77,7 +76,6 @@ function odwa() {
   brnie = document.getElementById("brnie").innerHTML = ++ countnum;
 }
 
-// DISPLAY PRODUCTS IN HOME PAGE
 function homeDisplayProducts() {
     products.innerHTML = ""
   // loop into productsState and display
