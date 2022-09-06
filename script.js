@@ -67,14 +67,25 @@ var productsState = [
 ]
 
 
-const products = document.getElementById("products")
+var products = document.getElementById("products")
+
 var brnie = document.getElementById("brnie")
 
-let countnum =0;
+let cartArray = [];
 
 function odwa() {
-  brnie = document.getElementById("brnie").innerHTML = ++ countnum;
-}
+    vuko = document.getElementById("vuko") 
+
+    cartArray.push({id: "",
+      name: "",
+      price: "",
+      rates: "",
+      image:"",})
+  
+
+    homeDisplayProducts();
+  }
+  
 
 function homeDisplayProducts() {
     products.innerHTML = ""
@@ -99,7 +110,8 @@ function homeDisplayProducts() {
     
     `
     
-  }
+  }  
+  brnie.innerHTML = cartArray.length;
 }
 
 
