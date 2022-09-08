@@ -68,23 +68,44 @@ var productsState = [
 
 
 var products = document.getElementById("products")
-
 var brnie = document.getElementById("brnie")
+var vuko = document.getElementById("vuko")
 
 let cartArray = [];
 
 function odwa() {
-    vuko = document.getElementById("vuko") 
 
     cartArray.push({id: "",
       name: "",
       price: "",
       rates: "",
-      image:"",})
-  
+      image:"",})  
+      homeDisplayProducts()
+      display();
+}
 
-    homeDisplayProducts();
+function display() {
+  vuko.innerHTML = "" 
+
+  for (let i = 0; i < cartArray.length; i++) {
+    vuko.innerHTML += `<div class="product" id="vuko">
+    <div class="product">
+    <div class="product__img">
+        <img
+          src=${productsState[i].image}
+          alt=""
+        />
+    </div>
+        <div class="product__name">${productsState[i].name}</div>
+          <div class="product__rate">
+            ${'<span>*</span>'.repeat(productsState[i].rates)}
+          </div>
+          <div class="product__price">R <span>${productsState[i].price}</span></div>  
+      </div>`
+    
   }
+}
+  
   
 
 function homeDisplayProducts() {
@@ -112,8 +133,11 @@ function homeDisplayProducts() {
     
   }  
   brnie.innerHTML = cartArray.length;
+  
 }
 
 
 // CALL THE DISPLAY FUNCTION
 homeDisplayProducts()
+
+display() 
