@@ -7,6 +7,10 @@
     --transition: ease-in-out 300ms;
     --gold: rgb(255, 157, 0);
     }
+
+    .Cart h2{
+      border-radius: 5px;
+    } 
     
   /* RESET general style ************/
   * {
