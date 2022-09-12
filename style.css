@@ -9,8 +9,11 @@
     }
 
     .Cart h2{
-      border-radius: 5px;
+      border-radius: 15px;
+      position: relative;
     } 
+
+    
     
   /* RESET general style ************/
   * {

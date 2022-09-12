@@ -79,7 +79,7 @@ function odwa() {
       name: "",
       price: "",
       rates: "",
-      image:"",})  
+      image:"",})  +
       homeDisplayProducts()
       display();
 }
