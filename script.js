@@ -102,6 +102,14 @@ for (let i = 0; i < productsState.length; i++) {
 
 }
 
+function removecl(i) {
+  cartArray.splice(i,1)
+
+  mno()
+
+  homeDisplayProducts()
+}
+
 function odwa(i) {
 
     cartArray.push(productsState[i])
@@ -130,7 +138,8 @@ function mno() {
             ${'<span>*</span>'.repeat(cartArray[i].rates)}
           </div>
           <div class="product__price">R <span>${cartArray[i].price}</span></div>
-          <button onclick"mnodisplay(${i})">+ ADD TO CART</button>  
+          <button onclick"mnodisplay(${i})">+ ADD TO CART</button>
+          <button onclick="removecl(${i})">x Remove</button>  
       </div>`
     
   }
