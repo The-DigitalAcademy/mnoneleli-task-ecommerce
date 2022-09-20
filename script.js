@@ -66,78 +66,77 @@ var productsState = [
   },
 ]
 
+let cartArray = []
+
 
 var products = document.getElementById("products")
-var brnie = document.getElementById("brnie")
-var vuko = document.getElementById("vuko")
+var brnie = document.getElementById("brnie");
+var mnodisplay = document.getElementById("mnodisplay");
 
-let cartArray = [];
 
-function odwa() {
 
-    cartArray.push({id: "",
-      name: "",
-      price: "",
-      rates: "",
-      image:"",})  +
-      homeDisplayProducts()
-      display();
+function homeDisplayProducts() {
+  products.innerHTML = ""
+// loop into productsState and display
+for (let i = 0; i < productsState.length; i++) {
+  products.innerHTML += `
+  
+  <div class="product">
+      <div class="product__img">
+          <img
+            src=${productsState[i].image}
+            alt=""
+          />
+      </div>
+          <div class="product__name">${productsState[i].name}</div>
+            <div class="product__rate">
+              ${'<span>*</span>'.repeat(productsState[i].rates)}
+            </div>
+            <div class="product__price">R <span>${productsState[i].price}</span></div> 
+              <button onclick="odwa(${i})">+ ADD TO CART</button> 
+        </div>
+  
+  `
+  
 }
 
-function display() {
-  vuko.innerHTML = "" 
+}
+
+function odwa(i) {
+
+    cartArray.push(productsState[i])
+    document.getElementById('brnie').innerHTML = cartArray.length;
+
+    mno()
+
+      homeDisplayProducts()
+}
+
+function mno() {
+  mnodisplay.innerHTML = "" 
 
   for (let i = 0; i < cartArray.length; i++) {
-    vuko.innerHTML += `<div class="product" id="vuko">
-    <div class="product">
-    <div class="product__img">
+    mnodisplay.innerHTML +=
+      `<div class="product" id="vuko">
+      <div class="product">
+      <div class="product__img">
         <img
-          src=${productsState[i].image}
+          src=${cartArray[i].image}
           alt=""
         />
     </div>
-        <div class="product__name">${productsState[i].name}</div>
+        <div class="product__name">${cartArray[i].name}</div>
           <div class="product__rate">
-            ${'<span>*</span>'.repeat(productsState[i].rates)}
+            ${'<span>*</span>'.repeat(cartArray[i].rates)}
           </div>
-          <div class="product__price">R <span>${productsState[i].price}</span></div>  
+          <div class="product__price">R <span>${cartArray[i].price}</span></div>
+          <button onclick"mnodisplay(${i})">+ ADD TO CART</button>  
       </div>`
     
   }
 }
-  
-  
 
-function homeDisplayProducts() {
-    products.innerHTML = ""
-  // loop into productsState and display
-  for (let i = 0; i < productsState.length; i++) {
-    products.innerHTML += `
-    
-    <div class="product">
-        <div class="product__img">
-            <img
-              src=${productsState[i].image}
-              alt=""
-            />
-        </div>
-            <div class="product__name">${productsState[i].name}</div>
-              <div class="product__rate">
-                ${'<span>*</span>'.repeat(productsState[i].rates)}
-              </div>
-              <div class="product__price">R <span>${productsState[i].price}</span></div> 
-                <button onclick="odwa()">+ ADD TO CART</button> 
-          </div>
-    
-    `
-    
-  }  
-  brnie.innerHTML = cartArray.length;
-  
-}
-
+mno()
 
 // CALL THE DISPLAY FUNCTION
 homeDisplayProducts()
-
-display() 
