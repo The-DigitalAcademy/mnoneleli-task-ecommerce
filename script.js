@@ -2,84 +2,84 @@
 var productsState = [
   {
     id: 1,
-    name: 'Macbook Pro',
-    price: 28000,
+    name: "Puma Multicolor",
+    price: 925.99,
     rates: 5,
     image:
-      'https://www.istore.co.za/media/catalog/product/m/a/macbook_pro_space_grey-1_2.png?format=jpeg',
+      "https://www.tradeinn.com/f/13758/137587173/puma-future-rider-play-on-trainers.jpg",
   },
   {
     id: 2,
-    name: 'Iphone 13 Pro',
-    price: 23000,
+    name: "Puma Grey",
+    price: 1700.00,
     rates: 3,
     image:
-      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
+      "https://www.tradeinn.com/f/13805/138052727/puma-city-rider-trainers.jpg",
   },
   {
     id: 1,
-    name: 'Iphone 6 C',
-    price: 7000,
+    name: "Puma White-Fizzy Lime-Puma Royal",
+    price: 1600,
     rates: 2,
     image:
-      'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80',
+      "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/371149/75/fnd/ZAF/w/1000/h/1000/fmt/png",
   },
   {
     id: 1,
-    name: 'HP Laptop',
-    price: 8000,
+    name: "Puma Grey",
+    price: 660.99,
     rates: 1,
     image:
-      'https://images.unsplash.com/photo-1589561084283-930aa7b1ce50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80',
+      "https://www.tradeinn.com/f/13805/138052726/puma-city-rider-trainers.jpg",
   },
   {
     id: 1,
-    name: 'Dell Laptop',
-    price: 4000,
+    name: "Puma White-Puma Black",
+    price: 1500.00,
     rates: 1,
     image:
-      'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/384530/01/fnd/ZAF/w/1000/h/1000/fmt/png",
   },
   {
     id: 1,
-    name: 'Macbook Pro',
-    price: 15000,
+    name: "Puma Black-Puma White-Puma Silver",
+    price: 796.49,
     rates: 5,
     image:
-      'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      "https://www.tradeinn.com/f/13805/138052407/puma-future-rider-play-on.jpg",
   },
   {
     id: 1,
-    name: 'Playstation 5',
-    price: 20000,
+    name: "Puma Brown",
+    price:679.99,
     rates: 4,
     image:
-      'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+      "https://www.tradeinn.com/f/13805/138052765/puma-future-rider-tiny-trainers.jpg",
   },
   {
     id: 1,
-    name: 'PS 4 Joystick',
-    price: 1200,
+    name: "Puma Blue",
+    price: 689.99,
     rates: 3,
     image:
-      'https://images.unsplash.com/photo-1592840496694-26d035b52b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=825&q=80',
+      "https://www.tradeinn.com/f/13815/138158294/puma-future-rider-tiny-junior-trainers.jpg",
   },
-]
+];
 
-let cartArray = []
+let cartArray = [];
 
-
-var products = document.getElementById("products")
+var products = document.getElementById("products");
 var brnie = document.getElementById("brnie");
 var mnodisplay = document.getElementById("mnodisplay");
-
-
+var totalcount = document.getElementById("totalcount");
 
 function homeDisplayProducts() {
-  products.innerHTML = ""
-// loop into productsState and display
-for (let i = 0; i < productsState.length; i++) {
-  products.innerHTML += `
+
+  calculate() 
+  products.innerHTML = "";
+  // loop into productsState and display
+  for (let i = 0; i < productsState.length; i++) {
+    products.innerHTML += `
   
   <div class="product">
       <div class="product__img">
@@ -90,42 +90,56 @@ for (let i = 0; i < productsState.length; i++) {
       </div>
           <div class="product__name">${productsState[i].name}</div>
             <div class="product__rate">
-              ${'<span>*</span>'.repeat(productsState[i].rates)}
+              ${"<span>*</span>".repeat(productsState[i].rates)}
             </div>
-            <div class="product__price">R <span>${productsState[i].price}</span></div> 
+            <div class="product__price">R <span>${
+              productsState[i].price
+            }</span></div> 
               <button onclick="odwa(${i})">+ ADD TO CART</button> 
         </div>
   
-  `
-  
+  `;
+  }
 }
 
+function calculate() {
+  let total = 0
+
+  for (let i = 0; i < cartArray.length; i++) {
+    total += cartArray[i].price
+  }
+
+  totalcount.innerHTML = total
 }
 
 function removecl(i) {
-  cartArray.splice(i,1)
+  cartArray.splice(i, 1);
 
-  mno()
+  calculate();
 
-  homeDisplayProducts()
+  mno();
+
+  homeDisplayProducts();
 }
 
 function odwa(i) {
+  document.getElementById("brnie").innerHTML = cartArray.length;
+  cartArray.push(productsState[i]);
 
-    cartArray.push(productsState[i])
-    document.getElementById('brnie').innerHTML = cartArray.length;
+  calculate();
 
-    mno()
+  mno();
 
-      homeDisplayProducts()
+  homeDisplayProducts();
 }
 
 function mno() {
-  mnodisplay.innerHTML = "" 
+  mnodisplay.innerHTML = "";
 
   for (let i = 0; i < cartArray.length; i++) {
-    mnodisplay.innerHTML +=
-      `<div class="product" id="vuko">
+    mnodisplay.innerHTML += `
+    
+    <div class="product" id="vuko">
       <div class="product">
       <div class="product__img">
         <img
@@ -135,17 +149,15 @@ function mno() {
     </div>
         <div class="product__name">${cartArray[i].name}</div>
           <div class="product__rate">
-            ${'<span>*</span>'.repeat(cartArray[i].rates)}
+            ${"<span>*</span>".repeat(cartArray[i].rates)}
           </div>
           <div class="product__price">R <span>${cartArray[i].price}</span></div>
-          <button onclick"mnodisplay(${i})">+ ADD TO CART</button>
           <button onclick="removecl(${i})">x Remove</button>  
-      </div>`
-    
+      </div>`;
   }
 }
 
-mno()
+mno();
 
 // CALL THE DISPLAY FUNCTION
-homeDisplayProducts()
+homeDisplayProducts();
