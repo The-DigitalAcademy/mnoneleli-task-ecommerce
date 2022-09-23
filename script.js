@@ -75,7 +75,7 @@ var totalcount = document.getElementById("totalcount");
 
 function homeDisplayProducts() {
 
-  calculate() 
+
   products.innerHTML = "";
   // loop into productsState and display
   for (let i = 0; i < productsState.length; i++) {
@@ -98,8 +98,10 @@ function homeDisplayProducts() {
               <button onclick="odwa(${i})">+ ADD TO CART</button> 
         </div>
   
-  `;
+  `
   }
+  brnie.innerHTML = cartArray.length;
+  
 }
 
 function calculate() {
@@ -134,7 +136,7 @@ function odwa(i) {
 }
 
 function mno() {
-  mnodisplay.innerHTML = "";
+  mnodisplay.innerHTML = ""
 
   for (let i = 0; i < cartArray.length; i++) {
     mnodisplay.innerHTML += `
