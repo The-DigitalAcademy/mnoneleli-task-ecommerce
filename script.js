@@ -121,6 +121,8 @@ function removecl(i) {
 
   mno();
 
+  saveToStorge()
+
   homeDisplayProducts();
 }
 
@@ -131,6 +133,8 @@ function odwa(i) {
   calculate();
 
   mno();
+
+  saveToStorge()
 
   homeDisplayProducts();
 }
@@ -157,6 +161,12 @@ function mno() {
           <button onclick="removecl(${i})">x Remove</button>  
       </div>`;
   }
+}
+
+function saveToStorge() {
+  let data = JSON.stringify(cartArray)
+  localStorage.setItem('cartArray',data)
+  
 }
 
 mno();
