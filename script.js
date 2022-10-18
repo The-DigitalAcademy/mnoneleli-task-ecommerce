@@ -123,6 +123,8 @@ function removecl(i) {
 
   saveToStorge()
 
+  readLocalStorage()
+
   homeDisplayProducts();
 }
 
@@ -135,6 +137,8 @@ function odwa(i) {
   mno();
 
   saveToStorge()
+
+  readLocalStorage()
 
   homeDisplayProducts();
 }
@@ -167,6 +171,11 @@ function saveToStorge() {
   let data = JSON.stringify(cartArray)
   localStorage.setItem('cartArray',data)
   
+}
+
+function readLocalStorage() {
+ let data = JSON.parse(localStorage.getItem('cartArray'))
+ cartArray = data 
 }
 
 mno();
